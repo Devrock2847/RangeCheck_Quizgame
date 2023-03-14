@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include <map>
+#include <random>
 
 Mountains::Mountains(std::vector<std::string>& filenames) {
 	//Takes the first file in filenames and seperates the file type into a separate variable
@@ -39,12 +40,11 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 std::string Mountains::getRandomMountain() {
 	//Iterates over the map and imports all values into a vector
 	auto it = data.begin(); //O(1)
-	std::advance(it, rand() % data.size()); //O(n)
+	//std::advance(it, rand() % data.size()); //O(n)
+	std::advance(it, (1 + std::rand() / ((RAND_MAX + 1u) / data.size())) - 1); //O(n)
 	vectorious = it->second; //O(1)
-	
-	//returns value of vector at random, tried to make this as random as possible 
-	//return vectorious[rand() % vectorious.size()];
-	return vectorious[rand() * vectorious.size() / RAND_MAX]; //O(1) 
+	//returns a random value from a vector of every mountain, with research this was the most reliable random number generation
+	return vectorious[(1 + std::rand() / ((RAND_MAX + 1u) / vectorious.size())) - 1]; //O(1) 
 } 
 
 bool Mountains::checkRange(std::string mountain, std::string range) {
