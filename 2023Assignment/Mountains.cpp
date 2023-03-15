@@ -40,10 +40,10 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 std::string Mountains::getRandomMountain() {
 	//Iterates over the map and imports all values into a vector
 	auto it = data.begin(); //O(1)
-	//std::advance(it, rand() % data.size()); //O(n)
+	//To replace the previously used rand() % data.size() which is considered biased random number generation
 	std::advance(it, (1 + std::rand() / ((RAND_MAX + 1u) / data.size())) - 1); //O(n)
 	vectorious = it->second; //O(1)
-	//returns a random value from a vector of every mountain, with research this was the most reliable random number generation
+	//returns a random value from a vector of every mountain using the same algorithm
 	return vectorious[(1 + std::rand() / ((RAND_MAX + 1u) / vectorious.size())) - 1]; //O(1) 
 } 
 
