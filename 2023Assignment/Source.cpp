@@ -74,7 +74,24 @@ std::string userInputStr(std::string userInput) {
 	std::cin >> userInput;
 	return userInput;
 }
+float percentage(int a, int b) {
+	//Calculates the percentage of two ints
+	float percentageCalc = (static_cast<float>(a) / b) * 100;
+	//Rounds the number, converts to a whole number and divides by 100 to make it 00.00 format
+	float decimalPoint = (int)(percentageCalc * 100 + .5);
+	return (float)decimalPoint / 100;
+}
 
+void viewScoreBoard(std::vector<std::pair<double, std::string>> scoreBoard) {
+	sort(scoreBoard.begin(), scoreBoard.end());
+	int a;
+	std::cout << "Scoreboard" << std::endl;
+	for (int i = 0; i < scoreBoard.size(); i++) {
+		a = i + 1;
+		std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
+	}
+	
+}
 //Time complexity: O(24) + O(n) + O(n) + O(n) + O(n) = O(n)
 int runGame() {
 	int gameCounter = 0; //O(1)
@@ -85,9 +102,8 @@ int runGame() {
 	std::vector<std::string> files = { "Alps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" }; //O(1)
 	Mountains mountainObject(files); //O(n)
 	std::vector<std::string> mountainRange = vectorTrim(files); //O(n)
-	bool isTrueTwo = true;
 
-	while (isTrueTwo) { //O(1)
+	while (true) { //O(1)
 		bool isTrue;//O(1)
 		//std::string userInput;//O(1)
 		std::string userInput;
@@ -121,15 +137,8 @@ int runGame() {
 
 			long double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - t).count() / 1000000000.0;
 			if (userInput == "score") {
-				sort(scoreBoard.begin(), scoreBoard.end());
-				int a;
-				std::cout << "Scoreboard" << std::endl;
-				//std::cout << "Time   Mountain" << std::endl;
-				for (int i = 0; i < scoreBoard.size(); i++) {
-					a = i + 1;
-					std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
-				}
-				isTrueTwo = true;
+				viewScoreBoard(scoreBoard);
+				std::cout << "Your average: " << percentage(gameScore, gameCounter) << "%" << std::endl;
 			}
 			if (userInput == "quit" || userInput == "exit") { //O(1)
 				sort(scoreBoard.begin(), scoreBoard.end());
