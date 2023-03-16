@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <chrono>
+#include <numeric>
 
 #include <thread>
 #include <mutex>
@@ -91,12 +92,21 @@ void viewScoreBoard(std::vector<std::pair<double, std::string>> scoreBoard) {
 		std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
 	}
 }
+void viewPercentages(int gameScore, int gameCounter, std::vector<float> const& timeKeeper) {
+	//Calculates the average from the vector of floats
+	auto const count = static_cast<float>(timeKeeper.size());
+	float average = std::accumulate(timeKeeper.begin(), timeKeeper.end(), 0.0) / count;
+	std::cout << "You scored: " << gameScore << " / " << gameCounter << std::endl;
+	std::cout << "Your average: " << percentage(gameScore, gameCounter) << "%" << std::endl;
+	std::cout << "Average time per question: " << average << " : Seconds" << std::endl;
+}
 //Time complexity: O(24) + O(n) + O(n) + O(n) + O(n) = O(n)
 int runGame() {
 	int gameCounter = 0; //O(1)
 	int gameScore = 0; //O(1)
 	bool timedOut = false;
 	std::vector<std::pair<double, std::string>> scoreBoard;
+	std::vector<float> timeKeeper;
 
 	std::vector<std::string> files = { "Alps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" }; //O(1)
 	Mountains mountainObject(files); //O(n)
@@ -135,12 +145,15 @@ int runGame() {
 		if (inputReceived) {
 
 			long double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - t).count() / 1000000000.0;
+			timeKeeper.push_back(elapsed);
+
 			if (userInput == "score") {
 				viewScoreBoard(scoreBoard);
-				std::cout << "Your average: " << percentage(gameScore, gameCounter) << "%" << std::endl;
+				viewPercentages(gameScore, gameCounter, timeKeeper);
 			}
 			if (userInput == "quit" || userInput == "exit") { //O(1)
 				viewScoreBoard(scoreBoard);
+				viewPercentages(gameScore, gameCounter, timeKeeper);
 				std::cout << "Game Exited" << std::endl; //O(1)
 				exit(1); //O(1)
 			}
@@ -176,8 +189,6 @@ int runGame() {
 	}
 	return 0;
 }
-
-	
 
 //Time complexity: O(4) + O(n) = O(n)
 int main() {

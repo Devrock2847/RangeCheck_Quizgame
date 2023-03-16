@@ -6,6 +6,7 @@
 #include <map>
 #include <random>
 
+
 Mountains::Mountains(std::vector<std::string>& filenames) {
 	//Takes the first file in filenames and seperates the file type into a separate variable
 	std::string fileType = filenames[0]; //O(1)
@@ -38,10 +39,11 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 }
 
 std::string Mountains::getRandomMountain() {
+	//srand(time(NULL));
 	//Iterates over the map and imports all values into a vector
 	auto it = data.begin(); //O(1)
 	//To replace the previously used rand() % data.size() which is considered biased random number generation
-	std::advance(it, (1 + std::rand() / ((RAND_MAX + 1u) / data.size())) - 1); //O(n)
+	std::advance(it, rand() % data.size()); //O(n)
 	vectorious = it->second; //O(1)
 	//returns a random value from a vector of every mountain using the same algorithm
 	return vectorious[(1 + std::rand() / ((RAND_MAX + 1u) / vectorious.size())) - 1]; //O(1) 
