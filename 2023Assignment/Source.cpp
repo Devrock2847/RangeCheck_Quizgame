@@ -90,7 +90,6 @@ void viewScoreBoard(std::vector<std::pair<double, std::string>> scoreBoard) {
 		a = i + 1;
 		std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
 	}
-	
 }
 //Time complexity: O(24) + O(n) + O(n) + O(n) + O(n) = O(n)
 int runGame() {
@@ -141,13 +140,7 @@ int runGame() {
 				std::cout << "Your average: " << percentage(gameScore, gameCounter) << "%" << std::endl;
 			}
 			if (userInput == "quit" || userInput == "exit") { //O(1)
-				sort(scoreBoard.begin(), scoreBoard.end());
-				int a;
-				std::cout << "Your final scores are:" << std::endl;
-				for (int i = 0; i < scoreBoard.size(); i++) {
-					a = i + 1;
-					std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
-				}
+				viewScoreBoard(scoreBoard);
 				std::cout << "Game Exited" << std::endl; //O(1)
 				exit(1); //O(1)
 			}
