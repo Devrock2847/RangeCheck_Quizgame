@@ -103,5 +103,9 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 		for(std::string j : i.second)
 			BOOST_TEST(txt.find(j) == std::string::npos, "HARDCODED STRING PRESENT: " + j);
 }
+BOOST_AUTO_TEST_CASE(falsePercentage)
+{
+	BOOST_TEST(m.percentage(100, 12))
+}
 
 BOOST_AUTO_TEST_SUITE_END()
