@@ -106,9 +106,11 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 }
 BOOST_AUTO_TEST_CASE(percentage)
 {
+	//TESTS FOR 20%
 	float percentageA = c.percentage(100, 5);
 	float percentageB = c.percentage(20, 1);
 	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
+	//TESTS FOR 15%
 	percentageA = c.percentage(30, 2);
 	percentageB = c.percentage(90, 6);
 	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
