@@ -121,15 +121,15 @@ BOOST_AUTO_TEST_CASE(checkInteger)
 
 BOOST_AUTO_TEST_CASE(percentage)
 {
-	//TESTS FOR 20%
+	//TESTS FOR 5%
 	float percentageA = c.percentage(5, 100);
 	//float percentageB = c.percentage(20, 1);
 	BOOST_CHECK_EQUAL(percentageA, 5);
-	//TESTS FOR 15%
+	//TESTS FOR 100%
 	percentageA = c.percentage(2, 2);
 	//percentageB = c.percentage(90, 6);
 	BOOST_CHECK_EQUAL(percentageA, 100);
-	//TESTS FOR 16.66%
+	//TESTS FOR 80%
 	percentageA = c.percentage(40, 50);
 	BOOST_CHECK_EQUAL(percentageA, 80);
 }
