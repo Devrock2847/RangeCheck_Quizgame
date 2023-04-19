@@ -108,6 +108,13 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 
 
 //checkInteger
+BOOST_AUTO_TEST_CASE(checkInteger)
+{
+	BOOST_TEST(c.checkInteger("5") == true);
+	BOOST_TEST(c.checkInteger("5tp") == false);
+	BOOST_TEST(c.checkInteger("aksjf") == false);
+
+}
 //editString
 //vectorTrim
 //userInputStr
