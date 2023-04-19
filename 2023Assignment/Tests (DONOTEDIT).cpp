@@ -1,6 +1,7 @@
 #include "Mountains.h"
 #include <thread>
 #include <map>
+#include "Calculations.h"
 
 #define BOOST_TEST_MODULE mytests
 #include <boost/test/included/unit_test.hpp>
@@ -16,6 +17,7 @@ std::map<std::string, std::vector<std::string> > data = { {"Alps", { "Dom","Olan
 
 struct f {
 	Mountains m;
+	Calculations c;
 	f() : m(files) {}
 	~f() {}
 };
@@ -101,6 +103,15 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 	for(auto i : data)
 		for(std::string j : i.second)
 			BOOST_TEST(txt.find(j) == std::string::npos, "HARDCODED STRING PRESENT: " + j);
+}
+BOOST_AUTO_TEST_CASE(percentage)
+{
+	float percentageA = c.percentage(100, 5);
+	float percentageB = c.percentage(20, 1);
+	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
+	percentageA = c.percentage(30, 2);
+	percentageB = c.percentage(90, 6);
+	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
