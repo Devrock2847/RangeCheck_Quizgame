@@ -105,15 +105,14 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 			BOOST_TEST(txt.find(j) == std::string::npos, "HARDCODED STRING PRESENT: " + j);
 }
 
-
+//NEW UNIT TESTS START HERE
 
 //checkInteger
 BOOST_AUTO_TEST_CASE(checkInteger)
 {
-	BOOST_TEST(c.checkInteger("5") == true);
-	BOOST_TEST(c.checkInteger("5tp") == false);
-	BOOST_TEST(c.checkInteger("aksjf") == false);
-
+	BOOST_TEST(c.checkInteger("512312") == true);
+	BOOST_TEST(c.checkInteger("5tf46p") == false);
+	BOOST_TEST(c.checkInteger("aksjaf") == false);
 }
 //editString
 //vectorTrim
@@ -123,13 +122,16 @@ BOOST_AUTO_TEST_CASE(checkInteger)
 BOOST_AUTO_TEST_CASE(percentage)
 {
 	//TESTS FOR 20%
-	float percentageA = c.percentage(100, 5);
-	float percentageB = c.percentage(20, 1);
-	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
+	float percentageA = c.percentage(5, 100);
+	//float percentageB = c.percentage(20, 1);
+	BOOST_CHECK_EQUAL(percentageA, 5);
 	//TESTS FOR 15%
-	percentageA = c.percentage(30, 2);
-	percentageB = c.percentage(90, 6);
-	BOOST_CHECK_EQUAL(percentageA, percentageB, TRUE);
+	percentageA = c.percentage(2, 2);
+	//percentageB = c.percentage(90, 6);
+	BOOST_CHECK_EQUAL(percentageA, 100);
+	//TESTS FOR 16.66%
+	percentageA = c.percentage(40, 50);
+	BOOST_CHECK_EQUAL(percentageA, 80);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
