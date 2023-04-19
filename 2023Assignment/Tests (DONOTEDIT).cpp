@@ -104,6 +104,15 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 		for(std::string j : i.second)
 			BOOST_TEST(txt.find(j) == std::string::npos, "HARDCODED STRING PRESENT: " + j);
 }
+
+
+
+//checkInteger
+//editString
+//vectorTrim
+//userInputStr
+
+
 BOOST_AUTO_TEST_CASE(percentage)
 {
 	//TESTS FOR 20%
