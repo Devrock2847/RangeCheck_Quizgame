@@ -7,7 +7,7 @@
 #include <numeric>
 
 bool Calculations::checkInteger(std::string input) {
-	//loops over a string a checks for integers
+	//loops over a string and checks for chars that are not integers and returns false if any are found and true if they are not
 	for (int i = 0; i < input.length(); i++) {
 		if (!isdigit(input[i])) {
 			return false;
@@ -18,6 +18,8 @@ bool Calculations::checkInteger(std::string input) {
 
 std::string Calculations::editString(std::string mainString, const std::string editString) {
 	//takes in a string and a substring and erases the substring from the string
+	//this is only used in the vectorTrim function after the editString has been isolated
+	//for example if you put in 'mountain', 'ain' this function will return 'mount'
 	size_t pos = mainString.find(editString);
 	if (pos != std::string::npos) {
 		mainString.erase(pos, editString.length());
@@ -27,6 +29,8 @@ std::string Calculations::editString(std::string mainString, const std::string e
 
 std::vector<std::string> Calculations::vectorTrim(std::vector<std::string> filenames) {
 	//A loop for removing the file type from the filenames
+	//first it takes a filename from the vector of filenames then finds the '.' where the filename begins and erases first part of the string eg; 'Alps.txt' becomes '.txt'
+	//then loops through the filenames array and removes '.txt' from each member of the array and returns it
 	std::string fileType = filenames[0];
 	std::string dot = ".";
 	size_t found = fileType.find(dot);
@@ -34,12 +38,14 @@ std::vector<std::string> Calculations::vectorTrim(std::vector<std::string> filen
 		fileType.erase(0, found);
 	}
 	for (int i = 0; i < filenames.size(); i++) {
+		//requires the editString function declared in the Calculations.cpp file
 		filenames[i] = editString(filenames[i], fileType);
 	}
 	return filenames;
 }
 
 std::string Calculations::userInputStr(std::string userInput) {
+	//simple user input method, was created to save typing it out multiple times
 	std::cin >> userInput;
 	return userInput;
 }
@@ -53,9 +59,12 @@ float Calculations::percentage(int a, int b) {
 }
 
 void Calculations::viewScoreBoard(std::vector<std::pair<double, std::string>> scoreBoard) {
+	//sorts the scoreBoard vector from smallest to largest
 	sort(scoreBoard.begin(), scoreBoard.end());
+	//int a will represent the numbers of the score bored like 1. 2. 3. ect 
 	int a;
 	std::cout << "Scoreboard" << std::endl;
+	//this loop prints out the entire scoreBoard in order 
 	for (int i = 0; i < scoreBoard.size(); i++) {
 		a = i + 1;
 		std::cout << a << ". " << scoreBoard[i].second << "\n" << "Time: " << scoreBoard[i].first << std::endl;
@@ -67,6 +76,7 @@ void Calculations::viewPercentages(int gameScore, int gameCounter, std::vector<f
 	auto const count = static_cast<float>(timeKeeper.size());
 	float average = std::accumulate(timeKeeper.begin(), timeKeeper.end(), 0.0) / count;
 	std::cout << "You scored: " << gameScore << " / " << gameCounter << std::endl;
+	//uses the percentage function defined in Calculations.cpp
 	std::cout << "Your average: " << percentage(gameScore, gameCounter) << "%" << std::endl;
 	std::cout << "Average time per question: " << average << " : Seconds" << std::endl;
 }
