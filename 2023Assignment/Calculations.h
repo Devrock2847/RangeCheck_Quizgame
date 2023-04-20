@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+//Declares a class to hold the all functions that calculate or work along side the main file Source.cpp
+//The function definitions for this class can be found on the Calculations.cpp
 class Calculations
 {
 public:
