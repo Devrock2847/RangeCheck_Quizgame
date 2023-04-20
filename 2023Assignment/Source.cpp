@@ -44,7 +44,7 @@ int runGame() {
 		bool inputReceived = false;
 		//starts the 10s timeout counter at 0
 		time_t startTime = time(NULL);
-		//this is the timeout number, if we wanted it to be a 20s timeout we would change this variable
+		//this is the timeout number, if the timeout needs to be changed this is the place to do it.
 		time_t waitTime = 10;
 		//a thread asks for the userInput(to answer the question) and changes inputReceieved to true when the input is received therby restarting the loop
 		std::thread t1([&]() {
@@ -58,38 +58,54 @@ int runGame() {
 		}
 		//if the user inputs an answer within the 10s this code runs
 		if (inputReceived) {
+			//stops the clock and logs it into a variable, uses nanoseconds for the count then converts it to seconds using / 1000000000.0
 			long double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - t).count() / 1000000000.0;
+			//adds the logged time to the timeKeeper vector called on line 20
 			timeKeeper.push_back(elapsed);
+			//if the user enters "score" they will be presented with the scoreBoard, the details can be found in the Calculations.cpp file
 			if (userInput == "score") {
 				calculationObject.viewScoreBoard(scoreBoard);
 				calculationObject.viewPercentages(gameScore, gameCounter, timeKeeper);
 			}
+			//if the user enters "quit" or "exit" the program will show the scoreboard and then exit
 			if (userInput == "quit" || userInput == "exit") {
 				calculationObject.viewScoreBoard(scoreBoard);
 				calculationObject.viewPercentages(gameScore, gameCounter, timeKeeper);
 				std::cout << "Game Exited" << std::endl;
 				exit(1);
 			}
+			//checks if the user entered an integer despite the input being of type string
 			if (calculationObject.checkInteger(userInput) == true) {
-				//Checks if it's an int then converts into an int 
+				//if the user has entered an int, convert it from string to int
 				int userInputInt = std::stoi(userInput);
+				//checks if the number is between 0 and the length of the array that holds the answers that were presented to the user
 				if (userInputInt > 0 && userInputInt <= mountainRange.size()) {
+					//checks if the user is correct with there answer with the checkRange function in the Mountains class 
+					//the -1 at the end is because the user is presented with numbers begining at 1 and vectors start at 0
 					isTrue = mountainObject.checkRange(randomMountain, mountainRange[userInputInt - 1]);
+					//if the user is correct
 					if (isTrue == true) {
+						//adds +1 to both the gameCounter and the gameScore
 						gameCounter = gameCounter + 1;
 						gameScore = gameScore + 1;
+						//announces to the user they were correct with the gameScore, gameCounter and the time they took to answer the question
 						std::cout << "Correct!, Your score is now " << gameScore << " / " << gameCounter << " Answered in : " << elapsed << std::endl;
+						//Adds the correct answer to the scoreBoard with the time taken to answer it
 						scoreBoard.push_back(std::make_pair(elapsed, randomMountain));
 					}
+					//if the user is incorrect only the gameCounter is increased
 					else if (isTrue == false) {
 						gameCounter = gameCounter + 1;
+						//the user is informed they were incorrect with an updated score to game counter
 						std::cout << "Incorrect, your score is now " << gameScore << " / " << gameCounter << std::endl;
 					}
 				}
+				//if the userInput is a integer but is not within the parameters of the game, in this case between 1-4
 				else {
 					std::cout << "Invalid input please enter a 1,2,3,4 or type 'quit' or 'exit' or 'score'" << std::endl;
 				}
 			}
+			//if the user did not enter an integer 
 			else {
 				std::cout << "Invalid input please enter a 1,2,3,4 or type 'quit' or 'exit' or 'score'" << std::endl;
 			}
