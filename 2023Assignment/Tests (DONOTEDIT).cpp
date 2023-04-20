@@ -115,9 +115,27 @@ BOOST_AUTO_TEST_CASE(checkInteger)
 	BOOST_TEST(c.checkInteger("aksjaf") == false);
 }
 //editString
+BOOST_AUTO_TEST_CASE(editString)
+{
+	BOOST_TEST(c.editString("hello world", " world") == "hello");
+	BOOST_TEST(c.editString("The cat sat on the mat", " sat") == "The cat on the mat");
+	BOOST_TEST(c.editString("one long boat floats on the ocean", "o") == "ne long boat floats on the ocean");
+}
 //vectorTrim
+BOOST_AUTO_TEST_CASE(vectorTrim)
+{
+	std::vector<std::string> vectoriousII = { "apple.fruit", "orange.fruit", "green.fruit", "eggplant.veggie"};
+	std::vector<std::string> vectoriousIII = c.vectorTrim(vectoriousII);
+	BOOST_CHECK_EQUAL(vectoriousIII[0], "apple");
+	BOOST_CHECK_EQUAL(vectoriousIII[1], "orange");
+	BOOST_CHECK_EQUAL(vectoriousIII[2], "green");
+	BOOST_CHECK_EQUAL(vectoriousIII[3], "eggplant.veggie");
+}
 //userInputStr
-
+BOOST_AUTO_TEST_CASE(userInputStr)
+{
+	//BOOST_TEST(c.userInputStr("apple") == "apple");
+}
 
 BOOST_AUTO_TEST_CASE(percentage)
 {
