@@ -10,9 +10,11 @@ bool Calculations::checkInteger(std::string input) {
 	//loops over a string and checks for chars that are not integers and returns false if any are found and true if they are not
 	for (int i = 0; i < input.length(); i++) {
 		if (!isdigit(input[i])) {
+			//returns boolean value false
 			return false;
 		}
 	}
+	//returns boolean value true 
 	return true;
 }
 
@@ -24,6 +26,7 @@ std::string Calculations::editString(std::string mainString, const std::string e
 	if (pos != std::string::npos) {
 		mainString.erase(pos, editString.length());
 	}
+	//returns a string that has been modified by the function
 	return mainString;
 }
 
@@ -41,12 +44,14 @@ std::vector<std::string> Calculations::vectorTrim(std::vector<std::string> filen
 		//requires the editString function declared in the Calculations.cpp file
 		filenames[i] = editString(filenames[i], fileType);
 	}
+	//returns the vector of strings filenames with the file type removes from each element of the vector
 	return filenames;
 }
 
 std::string Calculations::userInputStr(std::string userInput) {
 	//simple user input method, was created to save typing it out multiple times
 	std::cin >> userInput;
+	//returns a string of the users input 
 	return userInput;
 }
 
@@ -55,6 +60,7 @@ float Calculations::percentage(int a, int b) {
 	float percentageCalc = (static_cast<float>(a) / b) * 100;
 	//Rounds the number, converts to a whole number and divides by 100 to make it 00.00 format
 	float decimalPoint = (int)(percentageCalc * 100 + .5);
+	//returns the casted float of decimal point /100 to give the percentage value 
 	return (float)decimalPoint / 100;
 }
 

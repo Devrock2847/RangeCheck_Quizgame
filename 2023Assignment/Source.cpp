@@ -117,6 +117,7 @@ int runGame() {
 			std::cout << "You were too slow to answer, Your score is now " << gameScore << " / " << gameCounter << std::endl;
 		}
 	}
+	//if this point is ever met by the program it will break the loop, although by design it should never be met
 	return 0;
 }
 

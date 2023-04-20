@@ -57,11 +57,12 @@ bool Mountains::checkRange(std::string mountain, std::string range) {
 		//Checks the vector for the value the user selected and return true if the user was correct 
 		for (int i = 0; i < vectorious.size(); i++) {
 			if (vectorious[i] == mountain) {
+				//returns boolean value of true
 				return true;
 			}
 		}
 	}
-	//and false if they are incorrect
+	//returns boolean value false if they are incorrect
 	return false;
 }
 Mountains::~Mountains() {};
