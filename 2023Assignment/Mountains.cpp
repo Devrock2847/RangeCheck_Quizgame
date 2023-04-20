@@ -7,17 +7,18 @@
 #include <random>
 
 Mountains::Mountains(std::vector<std::string>& filenames) {
-	//Takes the first file in filenames and seperates the file type into a separate variable
+	//Takes the first file in filenames and seperates the file type into a separate variable, in this 
 	std::string fileType = filenames[0];
 	std::string dot = ".";
 	size_t found = fileType.find(dot);
 	if (found != std::string::npos) {
 		fileType.erase(0, found);
 	}
-	//Using a loop inputs the data into a tempory vector and adds it to the map with the relevant shortend key
+	//Using a loop inputs the data into a tempory vector and adds it to the map as the shortend key value
 	for (int i = 0; i < filenames.size(); i++) {
 		std::string inputValue = filenames[i];
 		std::string input;
+		//using fstream reads from the files specified inside the filenames vector and adds the data into a tempory vector
 		std::fstream fileInput;
 		fileInput.open(filenames[i], std::ios::in);
 
@@ -31,8 +32,9 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 			std::cout << "No file found" << std::endl;
 		}
 		inputValue.erase(inputValue.length() - fileType.length());
-
+		//at the end of the loop adds both the file name with the type type to the map as the key and the contents of the file as the data for that key 
 		data.insert({ inputValue, vectorious });
+		//then wipes the data from the variable vector ready to start again
 		vectorious.clear();
 	}
 }
@@ -52,13 +54,14 @@ bool Mountains::checkRange(std::string mountain, std::string range) {
 	auto it = data.find(range);
 	if(it != data.end()) {
 		vectorious = data.at(range);
-		//Checks the vector for the value the user selected
+		//Checks the vector for the value the user selected and return true if the user was correct 
 		for (int i = 0; i < vectorious.size(); i++) {
 			if (vectorious[i] == mountain) {
 				return true;
 			}
 		}
 	}
+	//and false if they are incorrect
 	return false;
 }
 Mountains::~Mountains() {};
