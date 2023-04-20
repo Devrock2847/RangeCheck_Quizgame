@@ -185,7 +185,6 @@
     <ClCompile Include="Tests (DONOTEDIT).cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Tests Calculations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculations.h" />
