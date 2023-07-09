@@ -116,15 +116,13 @@ BOOST_AUTO_TEST_CASE(checkRangeTest) {
 }
 
 //checkInteger
-BOOST_AUTO_TEST_CASE(checkInteger)
-{
+BOOST_AUTO_TEST_CASE(checkInteger) {
 	BOOST_TEST(c.checkInteger("512312") == true);
 	BOOST_TEST(c.checkInteger("5tf46p") == false);
 	BOOST_TEST(c.checkInteger("aksjaf") == false);
 }
 //editString
-BOOST_AUTO_TEST_CASE(editString)
-{
+BOOST_AUTO_TEST_CASE(editString) {
 	BOOST_TEST(c.editString("hello world", " world") == "hello");
 	BOOST_TEST(c.editString("The cat sat on the mat", " sat") == "The cat on the mat");
 	BOOST_TEST(c.editString("one long boat floats on the ocean", "o") == "ne long boat floats on the ocean");
