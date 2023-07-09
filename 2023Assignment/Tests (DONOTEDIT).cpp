@@ -107,9 +107,34 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 
 //NEW UNIT TESTS START HERE
 
+BOOST_DATA_TEST_CASE(parametisedCheckRange, bdata::make({ "Dom", "Hekla", "Aneto", "Rysy" }) ^ bdata::make({ "Alps", "Icelandic Highlands", "Pyrenees", "Carpathians" }), mountainName, mountainRange) {
+	BOOST_TEST(m.checkRange(mountainName, mountainRange) == true);
+}
+//Randomised set of tests, performs 100 random tests on the checkRange method
+BOOST_DATA_TEST_CASE(randomCheckRange, bdata::random(0, 3) ^ bdata::random(0, 4) ^ bdata::xrange(100), mountainRangeNo, mountainNo, testNo) {
+	std::vector<std::string> mountainRanges = { "Alps", "Icelandic Highlands", "Pyrenees", "Carpathians" };
+	std::vector<std::string> alpsMountainRange = { "Dom", "Olan", "Scopi", "Piz Bernina", "Grivola", "Marmolada" };
+	std::vector<std::string> iclandicHighlandsMountainRange = { "Hekla", "Maelifell", "Brennisteinsalda", "Modi", "Magni", "Eyjafjallajokull" };
+	std::vector<std::string> pyreneesMountainRange = { "Aneto", "Taga", "Monte Perdido", "Pedraforca", "Cerbillona", "Espadas Peak" };
+	std::vector<std::string> carpathiansMountainRange = { "Rysy", "Gerlach", "Swinica", "Krivan", "Mnich" };
+
+	std::string mountainRange = mountainRanges[mountainRangeNo];
+	std::string mountain = "";
+	if (mountainRangeNo == 0) {
+		mountain = alpsMountainRange[mountainNo];
+	}
+	else if (mountainRangeNo == 1) {
+		mountain = iclandicHighlandsMountainRange[mountainNo];
+	}
+	else if (mountainRangeNo == 2) {
+		mountain = pyreneesMountainRange[mountainNo];
+	}
+	else if (mountainRangeNo == 3) {
+		mountain = carpathiansMountainRange[mountainNo];
+	}
+	BOOST_TEST(m.checkRange(mountain, mountainRange) == true);
+}
 BOOST_AUTO_TEST_CASE(checkRangeTest) {
-	//bool response = m.checkRange("Olan", "Alps");
-	//BOOST_TEST(response = false, "TEST FAILED: Scopi is a part of the Alps.");
 	BOOST_TEST(m.checkRange("Olan", "Alps") == true);
 	BOOST_TEST(m.checkRange("Magni", "Icelandic Highlands") == true);
 	BOOST_TEST(m.checkRange("Olan", "Icelandic Highlands") == false);
@@ -128,8 +153,7 @@ BOOST_AUTO_TEST_CASE(editString) {
 	BOOST_TEST(c.editString("one long boat floats on the ocean", "o") == "ne long boat floats on the ocean");
 }
 //vectorTrim
-BOOST_AUTO_TEST_CASE(vectorTrim)
-{
+BOOST_AUTO_TEST_CASE(vectorTrim) {
 	std::vector<std::string> vectoriousII = { "apple.fruit", "orange.fruit", "green.fruit", "eggplant.veggie"};
 	std::vector<std::string> vectoriousIII = c.vectorTrim(vectoriousII);
 	BOOST_CHECK_EQUAL(vectoriousIII[0], "apple");
