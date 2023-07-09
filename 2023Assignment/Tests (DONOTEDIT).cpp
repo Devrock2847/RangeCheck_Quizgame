@@ -107,10 +107,11 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 
 //NEW UNIT TESTS START HERE
 
-BOOST_DATA_TEST_CASE(parametisedCheckRange, bdata::make({ "Dom", "Hekla", "Aneto", "Rysy" }) ^ bdata::make({ "Alps", "Icelandic Highlands", "Pyrenees", "Carpathians" }), mountainName, mountainRange) {
+//PARAMETERISED TEST for the checkRange method
+BOOST_DATA_TEST_CASE(parameterisedCheckRange, bdata::make({ "Dom", "Hekla", "Aneto", "Rysy" }) ^ bdata::make({ "Alps", "Icelandic Highlands", "Pyrenees", "Carpathians" }), mountainName, mountainRange) {
 	BOOST_TEST(m.checkRange(mountainName, mountainRange) == true);
 }
-//Randomised set of tests, performs 100 random tests on the checkRange method
+//RANDOMISED TEST, performs 100 random tests on the checkRange method
 BOOST_DATA_TEST_CASE(randomCheckRange, bdata::random(0, 3) ^ bdata::random(0, 4) ^ bdata::xrange(100), mountainRangeNo, mountainNo, testNo) {
 	std::vector<std::string> mountainRanges = { "Alps", "Icelandic Highlands", "Pyrenees", "Carpathians" };
 	std::vector<std::string> alpsMountainRange = { "Dom", "Olan", "Scopi", "Piz Bernina", "Grivola", "Marmolada" };
@@ -134,12 +135,12 @@ BOOST_DATA_TEST_CASE(randomCheckRange, bdata::random(0, 3) ^ bdata::random(0, 4)
 	}
 	BOOST_TEST(m.checkRange(mountain, mountainRange) == true);
 }
+//checkRange
 BOOST_AUTO_TEST_CASE(checkRangeTest) {
 	BOOST_TEST(m.checkRange("Olan", "Alps") == true);
 	BOOST_TEST(m.checkRange("Magni", "Icelandic Highlands") == true);
 	BOOST_TEST(m.checkRange("Olan", "Icelandic Highlands") == false);
 }
-
 //checkInteger
 BOOST_AUTO_TEST_CASE(checkInteger) {
 	BOOST_TEST(c.checkInteger("512312") == true);
