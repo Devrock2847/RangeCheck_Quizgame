@@ -107,6 +107,14 @@ BOOST_AUTO_TEST_CASE(noHardcodedStrings)
 
 //NEW UNIT TESTS START HERE
 
+BOOST_AUTO_TEST_CASE(checkRangeTest) {
+	//bool response = m.checkRange("Olan", "Alps");
+	//BOOST_TEST(response = false, "TEST FAILED: Scopi is a part of the Alps.");
+	BOOST_TEST(m.checkRange("Olan", "Alps") == true);
+	BOOST_TEST(m.checkRange("Magni", "Icelandic Highlands") == true);
+	BOOST_TEST(m.checkRange("Olan", "Icelandic Highlands") == false);
+}
+
 //checkInteger
 BOOST_AUTO_TEST_CASE(checkInteger)
 {
