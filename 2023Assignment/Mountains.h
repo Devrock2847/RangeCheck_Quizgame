@@ -11,13 +11,11 @@ class Mountains {
 	std::string fileType;
 	
 public:
-	bool triggerBool;
+	bool triggerBool = false;
 	//declares the functions detailed in the Mountains.cpp file
 	Mountains(std::vector<std::string>& filenames);
 	std::string getRandomMountain();
 	bool checkRange(std::string mountain, std::string range);
-	//std::map<std::string, std::vector<std::string>> getMountainData() { return data; };
-
 	bool checkFileType(std::string file);
 	~Mountains();
 };
