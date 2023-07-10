@@ -1,0 +1,24 @@
+\hypertarget{_mountains_8h_source}{}\doxysection{Mountains.\+h}
+\label{_mountains_8h_source}\index{2023Assignment/Mountains.h@{2023Assignment/Mountains.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<map>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mountains}{Mountains}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<std::string>\ vectorious;\ \textcolor{comment}{/*<\ Random\ vector\ used\ througout\ code\ */}}
+\DoxyCodeLine{00012\ \ \ \ \ std::map\ <\ std::string,\ std::vector<std::string>\ >\ data;\ \textcolor{comment}{/*<\ Main\ data\ structure\ used\ to\ store\ imported\ files\ */}}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ fileType;\ \textcolor{comment}{/*<\ Variabe\ used\ to\ identify\ the\ file\ type\ */}}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mountains_a2aa947a3338845f37410ffe604d13e46}{triggerBool}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_mountains}{Mountains}}(std::vector<std::string>\&\ filenames);}
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ \mbox{\hyperlink{class_mountains_a0781b1b6133d10826e626d766c83ffc4}{getRandomMountain}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mountains_a7a0a192950026498b0165e097b984729}{checkRange}}(std::string\ mountain,\ std::string\ range);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mountains_a00f5b2cb45c96eebf41ef29c32c58ad9}{checkFileType}}(std::string\ file);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_mountains_a370508b4c507b5d2efaa6c7f9038e609}{\string~Mountains}}();}
+\DoxyCodeLine{00047\ \};}
+
+\end{DoxyCode}

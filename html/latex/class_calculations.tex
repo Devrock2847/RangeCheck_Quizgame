@@ -1,0 +1,138 @@
+\hypertarget{class_calculations}{}\doxysection{Calculations Class Reference}
+\label{class_calculations}\index{Calculations@{Calculations}}
+
+
+{\ttfamily \#include $<$Calculations.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_calculations_a2b2b6d3e1658e2d0c678e7183a89573f}{check\+Integer}} (std\+::string input)
+\item 
+std\+::string \mbox{\hyperlink{class_calculations_a73022bfc77e1d7dae1f5629fa68d6d5f}{edit\+String}} (std\+::string main\+String, const std\+::string edit\+String)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_calculations_a5726bec928af48a3ef6065074a2c2fe4}{vector\+Trim}} (std\+::vector$<$ std\+::string $>$ filenames)
+\item 
+std\+::string \mbox{\hyperlink{class_calculations_a9ee4c7c821790e0c9a24a00bf704cc6a}{user\+Input\+Str}} (std\+::string user\+Input)
+\item 
+float \mbox{\hyperlink{class_calculations_aef704e523b50664e1c0111935a7158a7}{percentage}} (int a, int b)
+\item 
+void \mbox{\hyperlink{class_calculations_a17aa29991058a4634f7632bc833256d5}{view\+Score\+Board}} (std\+::vector$<$ std\+::pair$<$ double, std\+::string $>$ $>$ score\+Board)
+\item 
+void \mbox{\hyperlink{class_calculations_a31627dbc9a8111573933ffd34b430674}{view\+Percentages}} (int game\+Score, int game\+Counter, std\+::vector$<$ float $>$ const \&time\+Keeper)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_calculations}{Calculations}} class, this class holds many key functions and mathematical calculations used throughout the project 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_calculations_a2b2b6d3e1658e2d0c678e7183a89573f}\label{class_calculations_a2b2b6d3e1658e2d0c678e7183a89573f}} 
+\index{Calculations@{Calculations}!checkInteger@{checkInteger}}
+\index{checkInteger@{checkInteger}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{checkInteger()}{checkInteger()}}
+{\footnotesize\ttfamily bool check\+Integer (\begin{DoxyParamCaption}\item[{std\+::string}]{input }\end{DoxyParamCaption})}
+
+Checks if a string holds a numeric value by checking each character in the string 
+\begin{DoxyParams}{Parameters}
+{\em string} & input can be any string but the method will only return true if all characters present in the string hold a numerical value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean will return true is all characters are numbers eg \char`\"{}786483\char`\"{} but will return false if a character is found such as \char`\"{}276hjsa\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_calculations_a73022bfc77e1d7dae1f5629fa68d6d5f}\label{class_calculations_a73022bfc77e1d7dae1f5629fa68d6d5f}} 
+\index{Calculations@{Calculations}!editString@{editString}}
+\index{editString@{editString}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{editString()}{editString()}}
+{\footnotesize\ttfamily std\+::string edit\+String (\begin{DoxyParamCaption}\item[{std\+::string}]{main\+String,  }\item[{const std\+::string}]{edit\+String }\end{DoxyParamCaption})}
+
+Takes in two strings and removes a part of the string 
+\begin{DoxyParams}{Parameters}
+{\em string} & main\+String needs to be the larger of the two strings for example \char`\"{}\+Alps.\+txt\char`\"{} \\
+\hline
+{\em string} & edit\+String will identify what will be removes for example \char`\"{}.\+txt\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string that has been successfully edited for example \char`\"{}\+Alps.\+txt\char`\"{} with the edit\+String of \char`\"{}.\+txt\char`\"{} will return \char`\"{}\+Alps\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_calculations_aef704e523b50664e1c0111935a7158a7}\label{class_calculations_aef704e523b50664e1c0111935a7158a7}} 
+\index{Calculations@{Calculations}!percentage@{percentage}}
+\index{percentage@{percentage}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{percentage()}{percentage()}}
+{\footnotesize\ttfamily float percentage (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+Calculates the percentage value of 2 numbers, used to show \% of correct answers 
+\begin{DoxyParams}{Parameters}
+{\em int} & a should be the lowest of the two values \\
+\hline
+{\em int} & b should be the highest of the two values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float with the value of the percentage difference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_calculations_a9ee4c7c821790e0c9a24a00bf704cc6a}\label{class_calculations_a9ee4c7c821790e0c9a24a00bf704cc6a}} 
+\index{Calculations@{Calculations}!userInputStr@{userInputStr}}
+\index{userInputStr@{userInputStr}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{userInputStr()}{userInputStr()}}
+{\footnotesize\ttfamily std\+::string user\+Input\+Str (\begin{DoxyParamCaption}\item[{std\+::string}]{user\+Input }\end{DoxyParamCaption})}
+
+The program takes in user\+Input as an integer, when a string is needed this function converts it 
+\begin{DoxyParams}{Parameters}
+{\em string} & user\+Input is the value the user input to the console \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the same value but with the string datatype 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_calculations_a5726bec928af48a3ef6065074a2c2fe4}\label{class_calculations_a5726bec928af48a3ef6065074a2c2fe4}} 
+\index{Calculations@{Calculations}!vectorTrim@{vectorTrim}}
+\index{vectorTrim@{vectorTrim}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{vectorTrim()}{vectorTrim()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ vector\+Trim (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{filenames }\end{DoxyParamCaption})}
+
+Takes a vector of files names and removes the filetype, based on the position of a \char`\"{}.\char`\"{} fullstop 
+\begin{DoxyParams}{Parameters}
+{\em vector$<$string$>$} & filenames is vector of filenames eg \{\char`\"{}\+Alps.\+txt\char`\"{}, \char`\"{}\+Pyrenees.\+txt\char`\"{}\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$string$>$ that has been edited to be without the filetype eg \{\char`\"{}\+Alps\char`\"{}, \char`\"{}\+Pyrenees\char`\"{}\} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_calculations_a31627dbc9a8111573933ffd34b430674}\label{class_calculations_a31627dbc9a8111573933ffd34b430674}} 
+\index{Calculations@{Calculations}!viewPercentages@{viewPercentages}}
+\index{viewPercentages@{viewPercentages}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{viewPercentages()}{viewPercentages()}}
+{\footnotesize\ttfamily void view\+Percentages (\begin{DoxyParamCaption}\item[{int}]{game\+Score,  }\item[{int}]{game\+Counter,  }\item[{std\+::vector$<$ float $>$ const \&}]{time\+Keeper }\end{DoxyParamCaption})}
+
+Presents the user with a list of percentages of correct answers, sorts the list to show the fastest times 
+\begin{DoxyParams}{Parameters}
+{\em int} & game\+Score is a counter for how many questions have been answered correctly \\
+\hline
+{\em int} & game\+Counter is a counter for how many questions have been asked \\
+\hline
+{\em vector$<$float$>$} & const\& timekeeper is a vector containing the times it took the user to answers each question \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_calculations_a17aa29991058a4634f7632bc833256d5}\label{class_calculations_a17aa29991058a4634f7632bc833256d5}} 
+\index{Calculations@{Calculations}!viewScoreBoard@{viewScoreBoard}}
+\index{viewScoreBoard@{viewScoreBoard}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{viewScoreBoard()}{viewScoreBoard()}}
+{\footnotesize\ttfamily void view\+Score\+Board (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ double, std\+::string $>$ $>$}]{score\+Board }\end{DoxyParamCaption})}
+
+Presents the user with a scoreboard of thier best times 
+\begin{DoxyParams}{Parameters}
+{\em score\+Board} & is a vector of pairs string the time and the answers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, returns nothing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+2023\+Assignment/Calculations.\+h\item 
+2023\+Assignment/Calculations.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\hypertarget{class_mountains}{}\doxysection{Mountains Class Reference}
+\label{class_mountains}\index{Mountains@{Mountains}}
+
+
+{\ttfamily \#include $<$Mountains.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mountains_a73849b106609b229719bf8d17d18fd05}{Mountains}} (std\+::vector$<$ std\+::string $>$ \&filenames)
+\item 
+std\+::string \mbox{\hyperlink{class_mountains_a0781b1b6133d10826e626d766c83ffc4}{get\+Random\+Mountain}} ()
+\item 
+bool \mbox{\hyperlink{class_mountains_a7a0a192950026498b0165e097b984729}{check\+Range}} (std\+::string mountain, std\+::string range)
+\item 
+bool \mbox{\hyperlink{class_mountains_a00f5b2cb45c96eebf41ef29c32c58ad9}{check\+File\+Type}} (std\+::string file)
+\item 
+\mbox{\hyperlink{class_mountains_a370508b4c507b5d2efaa6c7f9038e609}{$\sim$\+Mountains}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_mountains_a2aa947a3338845f37410ffe604d13e46}{trigger\+Bool}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_mountains}{Mountains}} class, holds majority of data used within the quiz 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mountains_a73849b106609b229719bf8d17d18fd05}\label{class_mountains_a73849b106609b229719bf8d17d18fd05}} 
+\index{Mountains@{Mountains}!Mountains@{Mountains}}
+\index{Mountains@{Mountains}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{Mountains()}{Mountains()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mountains}{Mountains}} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{filenames }\end{DoxyParamCaption})}
+
+Constructor for the mountains class 
+\begin{DoxyParams}{Parameters}
+{\em string} & filenames consisting of full file names such as \char`\"{}\+Alps.\+txt\char`\"{} because on call it will trim them \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mountains_a370508b4c507b5d2efaa6c7f9038e609}\label{class_mountains_a370508b4c507b5d2efaa6c7f9038e609}} 
+\index{Mountains@{Mountains}!````~Mountains@{$\sim$Mountains}}
+\index{````~Mountains@{$\sim$Mountains}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{$\sim$Mountains()}{~Mountains()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_mountains}{Mountains}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default deconstructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mountains_a00f5b2cb45c96eebf41ef29c32c58ad9}\label{class_mountains_a00f5b2cb45c96eebf41ef29c32c58ad9}} 
+\index{Mountains@{Mountains}!checkFileType@{checkFileType}}
+\index{checkFileType@{checkFileType}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{checkFileType()}{checkFileType()}}
+{\footnotesize\ttfamily bool check\+File\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{file }\end{DoxyParamCaption})}
+
+Checks file type and exits the program if filetype is not compatable 
+\begin{DoxyParams}{Parameters}
+{\em string} & file takes a filename like \char`\"{}\+Alps.\+txt\char`\"{} and checks the type \char`\"{}.\+txt\char`\"{} is compatable with the program before it attempts to load it \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value shows true if filetype is incompatible and remains false if it is compatable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mountains_a7a0a192950026498b0165e097b984729}\label{class_mountains_a7a0a192950026498b0165e097b984729}} 
+\index{Mountains@{Mountains}!checkRange@{checkRange}}
+\index{checkRange@{checkRange}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{checkRange()}{checkRange()}}
+{\footnotesize\ttfamily bool check\+Range (\begin{DoxyParamCaption}\item[{std\+::string}]{mountain,  }\item[{std\+::string}]{range }\end{DoxyParamCaption})}
+
+Checks if a mountain belongs to a certain range 
+\begin{DoxyParams}{Parameters}
+{\em string} & mountain requires the individual mountain name \\
+\hline
+{\em string} & range requires the mountain range chosen by the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value shows true if mountain does belong to that range and false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mountains_a0781b1b6133d10826e626d766c83ffc4}\label{class_mountains_a0781b1b6133d10826e626d766c83ffc4}} 
+\index{Mountains@{Mountains}!getRandomMountain@{getRandomMountain}}
+\index{getRandomMountain@{getRandomMountain}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{getRandomMountain()}{getRandomMountain()}}
+{\footnotesize\ttfamily std\+::string get\+Random\+Mountain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Pulls a random mountain from multiple different files \begin{DoxyReturn}{Returns}
+string with value of random mountain 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_mountains_a2aa947a3338845f37410ffe604d13e46}\label{class_mountains_a2aa947a3338845f37410ffe604d13e46}} 
+\index{Mountains@{Mountains}!triggerBool@{triggerBool}}
+\index{triggerBool@{triggerBool}!Mountains@{Mountains}}
+\doxysubsubsection{\texorpdfstring{triggerBool}{triggerBool}}
+{\footnotesize\ttfamily bool trigger\+Bool = false}
+
+Variable used to exit program as part of source.\+cpp 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+2023\+Assignment/Mountains.\+h\item 
+2023\+Assignment/Mountains.\+cpp\end{DoxyCompactItemize}
