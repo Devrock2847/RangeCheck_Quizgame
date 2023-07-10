@@ -14,6 +14,7 @@ int runGame() {
 	int gameCounter = 0; 
 	//gameScore will total the amount of games won by the user 
 	int gameScore = 0; 
+	//boolean value used in try catch block
 	bool isTrue;
 	//timedOut is generic boolean required for the 10s timeout function
 	bool timedOut = false;
@@ -25,18 +26,19 @@ int runGame() {
 	std::vector<std::string> files = { "Alps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" };
 	//creates an object of the Mountains class
 	Mountains mountainObject(files);
-	//for (int i = 1; i <= files.size(); i++) {
+	//Checks files for compatibility priory to reading 
 	try {
 		for (int i = 0; i < files.size(); i++) {
+			//informs user of the filetypes
 			std::cout << "Checking filetype of " << files[i] << std::endl;
+			//true if filetype is compatible and false if not
 			isTrue = mountainObject.checkFileType(files[i]);
 			if (isTrue = false) {
 				throw isTrue;
 			}
-
 		}
-	}
-	catch (bool isTrue) {
+	} catch (bool isTrue) {
+		//Exits game when incompatable file type is found
 		std::cout << "Filetype is incompatible, closing program." << std::endl;
 		exit(EXIT_FAILURE);
 	}
