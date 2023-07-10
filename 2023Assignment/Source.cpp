@@ -1,6 +1,5 @@
 #include "Mountains.h"
 #include "Calculations.h"
-#include "ExceptionHandle.h"
 #include <iostream>
 #include <fstream>
 #include <string>

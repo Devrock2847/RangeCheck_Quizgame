@@ -1,5 +1,4 @@
 #include "Mountains.h"
-#include "ExceptionHandle.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -67,32 +66,6 @@ bool Mountains::checkRange(std::string mountain, std::string range) {
 	return false;
 }
 
-std::string Mountains::exceptionHandle() {
-	std::map<std::string, std::vector<std::string>> mountains = getMountainData();
-	
-	int mapSize = mountains.size();
-
-	if (mapSize < 2) {
-		ExceptionHandle e;
-		std::cout << "ERROR: Insufficient categories." << std::endl;
-		throw e;
-	}
-	std::vector<std::string> mapLength;
-	int mapTotal;
-
-	for (auto const& item : mountains) {
-		mapLength = item.second;
-		mapTotal = mapLength.size();
-		if (mapTotal < 1) {
-			ExceptionHandle e;
-			std::cout << "ERROR: Insufficient members in category." << std::endl;
-			throw e;
-		}
-		//membersVec.clear();
-		//membersTotal = 0;
-	}
-}
-
 bool Mountains::checkFileType(std::string file) {
 	std::string fileTypeTwo = "txt";
 	
@@ -103,7 +76,7 @@ bool Mountains::checkFileType(std::string file) {
 		std::cout << "File type is txt." << std::endl;
 		return true;
 	} else {
-		ExceptionHandle e;
+		//ExceptionHandle e;
 		std::cout << "File type is not compatable." << std::endl;
 		//throw e;
 		std::cout << "Program exiting" << std::endl;

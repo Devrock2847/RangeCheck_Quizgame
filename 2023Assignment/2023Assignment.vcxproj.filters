@@ -27,18 +27,12 @@
     <ClCompile Include="Calculations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ExceptionHandle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mountains.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Calculations.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ExceptionHandle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

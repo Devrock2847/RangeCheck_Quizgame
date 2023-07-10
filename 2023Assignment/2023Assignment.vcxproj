@@ -178,7 +178,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calculations.cpp" />
-    <ClCompile Include="ExceptionHandle.cpp" />
     <ClCompile Include="Mountains.cpp" />
     <ClCompile Include="Source.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
@@ -189,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculations.h" />
-    <ClInclude Include="ExceptionHandle.h" />
     <ClInclude Include="Mountains.h" />
   </ItemGroup>
   <ItemGroup>
