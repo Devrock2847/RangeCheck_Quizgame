@@ -9,7 +9,9 @@ class Mountains {
 	std::vector<std::string> vectorious;
 	std::map < std::string, std::vector<std::string> > data;
 	std::string fileType;
+	
 public:
+	bool triggerBool;
 	//declares the functions detailed in the Mountains.cpp file
 	Mountains(std::vector<std::string>& filenames);
 	std::string getRandomMountain();

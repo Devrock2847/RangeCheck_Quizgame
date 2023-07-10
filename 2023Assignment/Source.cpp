@@ -22,7 +22,7 @@ int runGame() {
 	//timeKeeper stores the times the user takes to answer a question
 	std::vector<float> timeKeeper;
 	//declaration of the filenames used within the project structure
-	std::vector<std::string> files = { "Alps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" };
+	std::vector<std::string> files = { "Aps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" };
 	//creates an object of the Mountains class
 	Mountains mountainObject(files);
 	//Checks files for compatibility priory to reading 
@@ -38,7 +38,11 @@ int runGame() {
 		}
 	} catch (bool isTrue) {
 		//Exits game when incompatable file type is found
-		std::cout << "Filetype is incompatible, closing program." << std::endl;
+		std::cout << "Filetype is incompatible, exiting program." << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	if (mountainObject.triggerBool == true) {
+		std::cout << "Faletype is incompatible, exiting program." << std::endl;
 		exit(EXIT_FAILURE);
 	}
 	

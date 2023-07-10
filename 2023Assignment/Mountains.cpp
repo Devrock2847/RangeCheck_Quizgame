@@ -10,6 +10,7 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 	//Takes the first file in filenames and seperates the file type into a separate variable, in this 
 	std::string fileType = filenames[0];
 	std::string dot = ".";
+	//bool triggerBool;
 	size_t found = fileType.find(dot);
 	if (found != std::string::npos) {
 		fileType.erase(0, found);
@@ -29,7 +30,8 @@ Mountains::Mountains(std::vector<std::string>& filenames) {
 			fileInput.close();
 		}
 		else {
-			std::cout << "No file found" << std::endl;
+			std::cout << "File not found" << std::endl;
+			triggerBool = true;
 		}
 		inputValue.erase(inputValue.length() - fileType.length());
 		//at the end of the loop adds both the file name with the type type to the map as the key and the contents of the file as the data for that key 
