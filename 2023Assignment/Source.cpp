@@ -9,7 +9,7 @@
 #include <exception>
 
 int runGame() {
-	//gameCounter will total the amount of games played 
+	//! gameCounter will total the amount of games played 
 	int gameCounter = 0; 
 	//gameScore will total the amount of games won by the user 
 	int gameScore = 0; 
@@ -142,7 +142,7 @@ int runGame() {
 			std::cout << "You were too slow to answer, Your score is now " << gameScore << " / " << gameCounter << std::endl;
 		}
 	}
-	//if this point is ever met by the program it will break the loop, although by design it should never be met
+	//! if this point is ever met by the program it will break the loop, although by design it should never be met
 	return 0;
 }
 
