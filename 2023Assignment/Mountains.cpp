@@ -70,17 +70,16 @@ bool Mountains::checkRange(std::string mountain, std::string range) {
 
 bool Mountains::checkFileType(std::string file) {
 	std::string fileTypeTwo = "txt";
-	
+	//Takes the filetype and compares it
 	std::string fileTypeThree = file.substr(file.length() - 3, 3);
 	int checkFile = fileTypeThree.compare(fileTypeTwo);
-
+	//informs the user and returns true if correct
 	if (checkFile == 0) {
 		std::cout << "File type is txt." << std::endl;
 		return true;
 	} else {
-		//ExceptionHandle e;
+		//Incompatible files will crash the program
 		std::cout << "File type is not compatable." << std::endl;
-		//throw e;
 		std::cout << "Program exiting" << std::endl;
 		exit(EXIT_FAILURE);
 	}

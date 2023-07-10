@@ -41,8 +41,9 @@ int runGame() {
 		std::cout << "Filetype is incompatible, exiting program." << std::endl;
 		exit(EXIT_FAILURE);
 	}
+	//triggerBool is triggered when an invalid file is attempted to be loaded 
 	if (mountainObject.triggerBool == true) {
-		std::cout << "Faletype is incompatible, exiting program." << std::endl;
+		std::cout << "Filetype is incompatible, exiting program." << std::endl;
 		exit(EXIT_FAILURE);
 	}
 	
