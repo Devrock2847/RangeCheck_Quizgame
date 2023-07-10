@@ -1,17 +1,20 @@
 #include "Mountains.h"
 #include "Calculations.h"
+#include "ExceptionHandle.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <chrono>
 #include <thread>
+#include <exception>
 
 int runGame() {
 	//gameCounter will total the amount of games played 
 	int gameCounter = 0; 
 	//gameScore will total the amount of games won by the user 
 	int gameScore = 0; 
+	bool isTrue;
 	//timedOut is generic boolean required for the 10s timeout function
 	bool timedOut = false;
 	//scoreBoard is a generic variable that will be populated with the viewScoreBoard function
@@ -21,7 +24,23 @@ int runGame() {
 	//declaration of the filenames used within the project structure
 	std::vector<std::string> files = { "Alps.txt", "Carpathians.txt", "Icelandic Highlands.txt", "Pyrenees.txt" };
 	//creates an object of the Mountains class
-	Mountains mountainObject(files); 
+	Mountains mountainObject(files);
+	//for (int i = 1; i <= files.size(); i++) {
+	try {
+		for (int i = 0; i < files.size(); i++) {
+			std::cout << "Checking filetype of " << files[i] << std::endl;
+			isTrue = mountainObject.checkFileType(files[i]);
+			if (isTrue = false) {
+				throw isTrue;
+			}
+
+		}
+	}
+	catch (bool isTrue) {
+		std::cout << "Filetype is incompatible, closing program." << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	
 	//creates an object of the Calculations class
 	Calculations calculationObject;
 	//calls vectorTrim to take the filenames and remove the filetype from them and place them into a new vector with the values; { "Alps", "Carpathians", "Icelandic Highlands", "Pyrenees" }

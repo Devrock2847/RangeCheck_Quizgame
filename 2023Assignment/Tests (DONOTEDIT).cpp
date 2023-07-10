@@ -163,13 +163,11 @@ BOOST_AUTO_TEST_CASE(vectorTrim) {
 	BOOST_CHECK_EQUAL(vectoriousIII[3], "eggplant.veggie");
 }
 //userInputStr
-BOOST_AUTO_TEST_CASE(userInputStr)
-{
+BOOST_AUTO_TEST_CASE(userInputStr) {
 	//BOOST_TEST(c.userInputStr("apple") == "apple");
 }
 
-BOOST_AUTO_TEST_CASE(percentage)
-{
+BOOST_AUTO_TEST_CASE(percentage) {
 	//TESTS FOR 5%
 	float percentageA = c.percentage(5, 100);
 	BOOST_CHECK_EQUAL(percentageA, 5);
